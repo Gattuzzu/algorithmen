@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 
 import ch.hftm.algorithmen.algorithmen.BinarySearch;
 import ch.hftm.algorithmen.algorithmen.LinearSearch;
+import ch.hftm.algorithmen.algorithmen.LinearSort;
 import ch.hftm.algorithmen.algorithmen.SelectionSort;
 
 /**
@@ -29,7 +30,8 @@ public class App extends Application {
 
         // testLinearSearch();
         // testBinarySearch();
-        testSelectionSort();
+        // testSelectionSort();
+        testLinearSort();
     }
 
     // Testmethoden
@@ -90,6 +92,19 @@ public class App extends Application {
 
         System.out.println("\nRückwärtssortierte Liste:");
         SelectionSort.reverse(list);
+        ausgabe(list);
+    }
+
+    public static void testLinearSort(){
+        List<Integer> list = randomList(10, 20);
+        ausgabe(list);
+
+        System.out.println("\nSortierte Liste:");
+        LinearSort.linearSort(list);
+        ausgabe(list);
+
+        System.out.println("\nRückwärtssortierte Liste:");
+        LinearSort.reverse(list);
         ausgabe(list);
     }
 
