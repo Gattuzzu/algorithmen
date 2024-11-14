@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Stream;
 
 import ch.hftm.algorithmen.algorithmen.BinarySearch;
 import ch.hftm.algorithmen.algorithmen.LinearSearch;
@@ -27,8 +28,8 @@ public class App extends Application {
         //launch();
 
         // testLinearSearch();
-        // testBinarySearch();
-        testSelectionSort();
+        testBinarySearch();
+        // testSelectionSort();
     }
 
     // Testmethoden
@@ -53,11 +54,12 @@ public class App extends Application {
     public static void testBinarySearch(){
         System.out.println("\nBinarySearch Testen\n");
         List<Integer> list = new ArrayList<>();
-        for(int i = 0; i < 10; i++){
+        int origListSize = 10;
+        for(int i = 0; i < origListSize; i++){
             list.add(i);
         }
         
-        for(int i = 0; i < list.size(); i++){
+        for(int i = 0; i < origListSize; i++){
             int index = BinarySearch.binarySearch(list, i);
             if(index != -1){
                 System.out.println(list.get(index));
@@ -65,10 +67,21 @@ public class App extends Application {
                 System.out.println("Zahl " + i + " nicht gefunden.");
             }
         }
+
+        System.out.println("\nNächste Zahl suchen:");
+        list.remove(9); // Letzte Zahl
+        list.remove(5); // zwei Zahlen zusammen
+        list.remove(4); // zwei Zahlen zusammen
+        list.remove(2); // einzelne Zahl
+        list.remove(0); // erste Zahl
+        for(int i = 0; i < origListSize; i++){
+            int index = BinarySearch.binarySearchForClosestMatch(list, i);
+            System.out.println("Die Nächste zahl zu " + i + " ist: " +list.get(index));
+        }
     }
 
     public static void testSelectionSort(){
-        List<Integer> list = randomList(1000, 10_000);
+        List<Integer> list = randomList(10, 20);
         ausgabe(list);
 
         SelectionSort.selectionSort(list);
@@ -87,9 +100,10 @@ public class App extends Application {
 
     private static List<Integer> randomList(int anzZahlen, int maxRandomZahl){
         List<Integer> list = new ArrayList<>();
-        for(int i = 0; i < anzZahlen; i++){
-            list.add(random.nextInt(maxRandomZahl));
-        }
+        Stream.generate(() -> random.nextInt(maxRandomZahl)).limit(anzZahlen).forEach(list::add); // Der Stream macht das selbe wie die Vorschleife
+        // for(int i = 0; i < anzZahlen; i++){
+        //     list.add(random.nextInt(maxRandomZahl));
+        // }
         return list;
     }
 
