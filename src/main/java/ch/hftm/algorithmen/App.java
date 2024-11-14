@@ -13,6 +13,7 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 import ch.hftm.algorithmen.algorithmen.BinarySearch;
+import ch.hftm.algorithmen.algorithmen.BubbleSort;
 import ch.hftm.algorithmen.algorithmen.LinearSearch;
 import ch.hftm.algorithmen.algorithmen.LinearSort;
 import ch.hftm.algorithmen.algorithmen.SelectionSort;
@@ -31,11 +32,13 @@ public class App extends Application {
         // testLinearSearch();
         // testBinarySearch();
         // testSelectionSort();
-        testLinearSort();
+        // testLinearSort();
+        testBubbleSort();
     }
 
     // Testmethoden
     public static void testLinearSearch(){
+        System.out.println("\nLinearSearch Testen\n");
         List<Integer> list = randomList(20, 15);
         ausgabe(list);
 
@@ -83,6 +86,7 @@ public class App extends Application {
     }
 
     public static void testSelectionSort(){
+        System.out.println("\nSelectionSearch Testen\n");
         List<Integer> list = randomList(11, 20);
         ausgabe(list);
 
@@ -96,6 +100,7 @@ public class App extends Application {
     }
 
     public static void testLinearSort(){
+        System.out.println("\nLinearSort Testen\n");
         List<Integer> list = randomList(10, 20);
         ausgabe(list);
 
@@ -106,6 +111,17 @@ public class App extends Application {
         System.out.println("\nRückwärtssortierte Liste:");
         LinearSort.reverse(list);
         ausgabe(list);
+    }
+
+    public static void testBubbleSort(){
+        System.out.println("\nBubbleSort Testen\n");
+        List<Integer> list = randomList(10, 20);
+        ausgabe(list);
+
+        System.out.println("\nSortierte Liste:");
+        BubbleSort.bubbleSort(list);
+        ausgabe(list);
+
     }
 
 

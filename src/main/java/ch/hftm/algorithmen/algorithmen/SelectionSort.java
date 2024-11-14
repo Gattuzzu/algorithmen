@@ -11,7 +11,7 @@ public class SelectionSort {
         }
     }
 
-    private static void switchTwoPositon(List<Integer> list, int indexPosA, int indexPosB){
+    protected static void switchTwoPositon(List<Integer> list, int indexPosA, int indexPosB){
         Integer value = list.get(indexPosA);
         list.set(indexPosA, list.get(indexPosB));
         list.set(indexPosB, value);
