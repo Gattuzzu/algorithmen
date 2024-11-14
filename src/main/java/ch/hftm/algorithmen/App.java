@@ -28,8 +28,8 @@ public class App extends Application {
         //launch();
 
         // testLinearSearch();
-        testBinarySearch();
-        // testSelectionSort();
+        // testBinarySearch();
+        testSelectionSort();
     }
 
     // Testmethoden
@@ -81,13 +81,16 @@ public class App extends Application {
     }
 
     public static void testSelectionSort(){
-        List<Integer> list = randomList(10, 20);
+        List<Integer> list = randomList(11, 20);
         ausgabe(list);
 
-        SelectionSort.selectionSort(list);
         System.out.println("\nSortierte Liste:");
+        SelectionSort.selectionSort(list);
         ausgabe(list);
 
+        System.out.println("\nRückwärtssortierte Liste:");
+        SelectionSort.reverse(list);
+        ausgabe(list);
     }
 
 
