@@ -7,21 +7,39 @@ public class SelectionSort {
     public static void selectionSort(List<Integer> list){
         for(int i = 0; i < list.size(); i++){
             int index = LinearSearch.linearMinSearch(list, i);
-            switchTwoPositon(list, i, index);
+            Helper.switchTwoPositon(list, i, index);
         }
-    }
-
-    protected static void switchTwoPositon(List<Integer> list, int indexPosA, int indexPosB){
-        Integer value = list.get(indexPosA);
-        list.set(indexPosA, list.get(indexPosB));
-        list.set(indexPosB, value);
     }
 
     public static void reverse(List<Integer> list){
-        int indexA = 0;
-        int indexB = list.size() - 1;
-        while(indexA != indexB && indexA < indexB){
-            switchTwoPositon(list, indexA++, indexB--);
+        int index = 0;
+        while(index < ((list.size() - 1) / 2)){
+            Helper.switchTwoPositon(list, index, (list.size() - 1 - index));
+            index++;
         }
     }
+
+
+    public static void selectionSort(int[] array){
+        for(int i = 0; i < array.length; i++){
+            int minValue = array[i];
+            int minIndex = i;
+            for(int j = i; j < array.length; j++){
+                if(minValue > array[j]){
+                    minValue = array[j];
+                    minIndex = j;
+                }
+            }
+            Helper.switchTwoPositon(array, i, minIndex);
+        }
+    }
+
+    public static void reverse(int[] array){
+        int index = 0;
+        while(index < ((array.length - 1) / 2)){
+            Helper.switchTwoPositon(array, index, (array.length - 1 - index));
+            index++;
+        }
+    }
+
 }

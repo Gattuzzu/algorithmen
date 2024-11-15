@@ -10,12 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import ch.hftm.algorithmen.algorithmen.BinarySearch;
 import ch.hftm.algorithmen.algorithmen.BubbleSort;
 import ch.hftm.algorithmen.algorithmen.LinearSearch;
 import ch.hftm.algorithmen.algorithmen.LinearSort;
+import ch.hftm.algorithmen.algorithmen.MergeSort;
 import ch.hftm.algorithmen.algorithmen.SelectionSort;
 
 /**
@@ -33,7 +35,8 @@ public class App extends Application {
         // testBinarySearch();
         // testSelectionSort();
         // testLinearSort();
-        testBubbleSort();
+        // testBubbleSort();
+        zeitTest();
     }
 
     // Testmethoden
@@ -121,6 +124,42 @@ public class App extends Application {
         System.out.println("\nSortierte Liste:");
         BubbleSort.bubbleSort(list);
         ausgabe(list);
+    }
+
+    public static void zeitTest(){
+        long startTime = 0;
+        long endTime = 0;
+        int[] origArray = IntStream.generate(() -> new Random().nextInt(100_000)).limit(10_000).toArray();
+        int[] array;
+        // ausgabe(origArray);
+
+        array = origArray.clone();
+        startTime = System.nanoTime();
+        LinearSort.linearSort(array);
+        endTime = System.nanoTime();
+        System.out.println("LinearSort: " + ((endTime - startTime) / 1000_000.0) + "ms"); // Umgerechnet in Millisekunden
+        // ausgabe(array);
+
+        array = origArray.clone();
+        startTime = System.nanoTime();
+        SelectionSort.selectionSort(array);
+        endTime = System.nanoTime();
+        System.out.println("SelectionSort: " + ((endTime - startTime) / 1000_000.0) + "ms"); // Umgerechnet in Millisekunden
+        // ausgabe(array);
+
+        array = origArray.clone();
+        startTime = System.nanoTime();
+        BubbleSort.bubbleSort(array);
+        endTime = System.nanoTime();
+        System.out.println("BubbleSort: " + ((endTime - startTime) / 1000_000.0) + "ms"); // Umgerechnet in Millisekunden
+        // ausgabe(array);
+
+        array = origArray.clone();
+        startTime = System.nanoTime();
+        MergeSort.mergeSort(array);
+        endTime = System.nanoTime();
+        System.out.println("MergeSort: " + ((endTime - startTime) / 1000_000.0) + "ms"); // Umgerechnet in Millisekunden
+        // ausgabe(array);
 
     }
 
@@ -128,6 +167,12 @@ public class App extends Application {
     // Hielfs Methoden
     private static void ausgabe(List<Integer> list){
         for(Integer i : list){
+            System.out.println(i);
+        }
+    }
+
+    private static void ausgabe(int[] array){
+        for(int i : array){
             System.out.println(i);
         }
     }
