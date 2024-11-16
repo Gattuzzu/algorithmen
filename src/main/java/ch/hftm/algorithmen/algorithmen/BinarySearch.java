@@ -19,7 +19,7 @@ public class BinarySearch {
             } else if(zielwert > list.get(actIndex)){
                 minIndex = actIndex + 1;
             } else{ // (zielwert < list.get(actIndex))
-                maxIndex = actIndex;
+                maxIndex = actIndex - 1;
             }
 
             if(getClosestMatch && minIndex == maxIndex){
@@ -53,7 +53,7 @@ public class BinarySearch {
             } else if(zielwert > array[actIndex]){
                 minIndex = actIndex + 1;
             } else{ // (zielwert < list[actIndex])
-                maxIndex = actIndex;
+                maxIndex = actIndex - 1;
             }
 
             if(getClosestMatch && minIndex == maxIndex){
