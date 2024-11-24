@@ -6,8 +6,12 @@ import java.util.stream.IntStream;
 
 import ch.hftm.algorithmen.algorithmen.SelectionSort;
 import ch.hftm.algorithmen.rekursiv.BinarySearch;
+import ch.hftm.algorithmen.rekursiv.CountChar;
+import ch.hftm.algorithmen.rekursiv.CreateDivider;
 import ch.hftm.algorithmen.rekursiv.Fakultaet;
 import ch.hftm.algorithmen.rekursiv.Fibonacci;
+import ch.hftm.algorithmen.rekursiv.Reverse;
+import ch.hftm.algorithmen.rekursiv.SummArray;
 import ch.hftm.algorithmen.rekursiv.Zaehler;
 
 public class RekursivTest {
@@ -15,7 +19,11 @@ public class RekursivTest {
         // testZaehler();
         // testFakultaet();
         // testFibonacci();
-        testBinarySearch();
+        // testBinarySearch();
+        // testReverse();
+        testCreateDivider();
+        // testCountChar();
+        // testSummArray();
     }
 
     public static void testZaehler(){
@@ -49,6 +57,36 @@ public class RekursivTest {
         }
 
     }
+
+    public static void testReverse(){
+        int i = 12345;
+        System.out.println("Vor umkehrung: " + i);
+        i = Reverse.reverse(i);
+        System.out.println("Nach umkehrung: " + i);
+    }
+
+    public static void testCreateDivider(){
+        System.out.println(CreateDivider.createLine("=", 5));
+        System.out.println(CreateDivider.createQuader("*", 5));
+    }
+
+    public static void testCountChar(){
+        int i = 54135515;
+        System.out.println("Die Zahl " + i + " hat " + CountChar.countChar(i) + " stellen.");
+        System.out.println("Selfmade: Die Zahl " + i + " hat " + CountChar.countCharSelfmade(i) + " stellen.");
+    }
+
+    public static void testSummArray(){
+        int[] array = {1, 2, 3, 4, 5};
+        int summe = SummArray.summArray(array);
+        System.out.println("Summe vom Array ist: " + summe);
+    }
+
+    // public static void testCountChar(){
+    //     String s = "hello world";
+    //     System.out.println("Die Zeichenkette \"" + s + "\" hat " + CountChar.countChar(s) + " stellen.");
+    //     System.out.println("Selfmade: Die Zeichenkette \"" + s + "\" hat " + CountChar.countCharSelfmade(s) + " stellen.");
+    // }
 
 
     // Hielfs Methoden
