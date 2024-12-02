@@ -14,4 +14,22 @@ public class Helper {
         array[indexPosA] = array[indexPosB];
         array[indexPosB] = value;
     }
+
+    // Prüfen ob die Liste aufsteigends sortiert ist.
+    protected static boolean isListSortedAsc(List<Integer> list){
+        if (list != null){
+          for(int i = 0; i < list.size(); i++){
+            if(i == (list.size() - 1)){
+                break;
+            } else if(list.get(i) > list.get(i + 1)){
+                return false;
+            }
+          }
+          return true;
+        } else{
+            // Falls diese Methode als Abbruchbedingung verwendet wird, und keine Liste übergeben wird, 
+            // dann wird trotzdem True zurückgegeben, damit man nicht in einer Endlosschleiffe festhängt.
+            return true;
+        }
+      }
 }

@@ -14,6 +14,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import ch.hftm.algorithmen.algorithmen.BinarySearch;
+import ch.hftm.algorithmen.algorithmen.BogoSort;
 import ch.hftm.algorithmen.algorithmen.BubbleSort;
 import ch.hftm.algorithmen.algorithmen.LinearSearch;
 import ch.hftm.algorithmen.algorithmen.LinearSort;
@@ -36,10 +37,11 @@ public class App extends Application {
         // testSelectionSort();
         // testLinearSort();
         // testBubbleSort();
+        testBogoSort();
         // zeitTest();
 
         // Rekursiv
-        RekursivTest.test();
+        // RekursivTest.test();
     }
 
     // Testmethoden
@@ -126,6 +128,16 @@ public class App extends Application {
 
         System.out.println("\nSortierte Liste:");
         BubbleSort.bubbleSort(list);
+        ausgabe(list);
+    }
+
+    public static void testBogoSort(){
+        System.out.println("\nBogoSort Testen\n");
+        List<Integer> list = randomList(10, 20); // Ab etwa 13 Zahlen Dauert es Mehrere Stunden
+        ausgabe(list);
+
+        System.out.println("\nSortierte Liste:");
+        BogoSort.bogoSort(list);
         ausgabe(list);
     }
 
