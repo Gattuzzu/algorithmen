@@ -35,7 +35,7 @@ public class Reverse {
         return reverseSelfmade(zahl, 0);
     }
 
-    public static int reverseSelfmade(int zahl, int gespiegelteZahl){
+    private static int reverseSelfmade(int zahl, int gespiegelteZahl){
         if(zahl == 0){
             return gespiegelteZahl;
         } else{

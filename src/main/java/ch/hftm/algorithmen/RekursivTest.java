@@ -21,9 +21,10 @@ public class RekursivTest {
         // testFibonacci();
         // testBinarySearch();
         // testReverse();
-        testCreateDivider();
-        // testCountChar();
+        // testCreateDivider();
+        // testCountIntChar();
         // testSummArray();
+        testCountChar();
     }
 
     public static void testZaehler(){
@@ -59,9 +60,16 @@ public class RekursivTest {
     }
 
     public static void testReverse(){
+        // Über ein String / Char Array gelöst
         int i = 12345;
         System.out.println("Vor umkehrung: " + i);
         i = Reverse.reverse(i);
+        System.out.println("Nach umkehrung: " + i);
+
+        // Mathematisch gelöst
+        i = 12345;
+        System.out.println("Vor umkehrung: " + i);
+        i = Reverse.reverseSelfmade(i);
         System.out.println("Nach umkehrung: " + i);
     }
 
@@ -70,10 +78,10 @@ public class RekursivTest {
         System.out.println(CreateDivider.createQuader("*", 5));
     }
 
-    public static void testCountChar(){
+    public static void testCountIntChar(){
         int i = 54135515;
         System.out.println("Die Zahl " + i + " hat " + CountChar.countChar(i) + " stellen.");
-        System.out.println("Selfmade: Die Zahl " + i + " hat " + CountChar.countCharSelfmade(i) + " stellen.");
+        System.out.println("Selfmade: Die Zahl " + i + " hat " + CountChar.countIntCharSelfmade(i) + " stellen.");
     }
 
     public static void testSummArray(){
@@ -82,11 +90,11 @@ public class RekursivTest {
         System.out.println("Summe vom Array ist: " + summe);
     }
 
-    // public static void testCountChar(){
-    //     String s = "hello world";
-    //     System.out.println("Die Zeichenkette \"" + s + "\" hat " + CountChar.countChar(s) + " stellen.");
-    //     System.out.println("Selfmade: Die Zeichenkette \"" + s + "\" hat " + CountChar.countCharSelfmade(s) + " stellen.");
-    // }
+    public static void testCountChar(){
+        String s = "hello world ";
+        System.out.println("Die Zeichenkette \"" + s + "\" hat " + CountChar.countChar(s) + " stellen.");
+        System.out.println("Selfmade: Die Zeichenkette \"" + s + "\" hat ohne Lehrzeichen " + CountChar.countCharWithoutWhitespaceSelfmade(s) + " stellen.");
+    }
 
 
     // Hielfs Methoden

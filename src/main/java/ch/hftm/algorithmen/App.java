@@ -37,11 +37,11 @@ public class App extends Application {
         // testSelectionSort();
         // testLinearSort();
         // testBubbleSort();
-        testBogoSort();
+        // testBogoSort();
         // zeitTest();
 
         // Rekursiv
-        // RekursivTest.test();
+        RekursivTest.test();
     }
 
     // Testmethoden
