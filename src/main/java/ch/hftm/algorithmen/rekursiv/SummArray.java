@@ -6,13 +6,10 @@ public class SummArray {
     }
 
     private static int summArray(int[] array, int i){
-        int z;
         if(i < (array.length - 1)){
-            z = array[i] + summArray(array, ++i);
+            return array[i] + summArray(array, ++i);
         } else{
-            z = array[i];
+            return array[i];
         }
-        return z;
-
     }
 }
