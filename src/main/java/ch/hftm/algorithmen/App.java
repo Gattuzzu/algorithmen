@@ -18,8 +18,8 @@ import ch.hftm.algorithmen.algorithmen.BogoSort;
 import ch.hftm.algorithmen.algorithmen.BubbleSort;
 import ch.hftm.algorithmen.algorithmen.LinearSearch;
 import ch.hftm.algorithmen.algorithmen.LinearSort;
-import ch.hftm.algorithmen.algorithmen.MergeSort;
 import ch.hftm.algorithmen.algorithmen.SelectionSort;
+import ch.hftm.algorithmen.rekursiv.MergeSort;
 
 /**
  * JavaFX App

@@ -1,4 +1,4 @@
-package ch.hftm.algorithmen.algorithmen;
+package ch.hftm.algorithmen.rekursiv;
 
 import java.util.List;
 
