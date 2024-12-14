@@ -11,8 +11,8 @@ public class MergeSort {
 
 
 
-// =====================================================================
-// Von Stack Overflow (bootom-up) -> Grösste Zahl zuerst
+    // =====================================================================
+    // Von Stack Overflow (bootom-up) -> Grösste Zahl zuerst
     private static void merge(int[]a,int[] aux, int f, int m, int l) {
 
         for (int k = f; k <= l; k++) {
@@ -40,6 +40,6 @@ public class MergeSort {
         int[] aux = new int[a.length];
         sort(a, aux, 0, a.length-1);
     }
-// =====================================================================
+    // =====================================================================
 
 }
