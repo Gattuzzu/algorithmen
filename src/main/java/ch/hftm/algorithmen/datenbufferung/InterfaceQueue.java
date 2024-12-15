@@ -1,11 +1,5 @@
 package ch.hftm.algorithmen.datenbufferung;
 
-public interface InterfaceQueue {
-  public void insert(Object item);
+public interface InterfaceQueue extends InterfaceQueueGeneric<Object> {
 
-  public Object remove();
-
-  public boolean isEmpty();
-
-  public boolean isFull();
 }
