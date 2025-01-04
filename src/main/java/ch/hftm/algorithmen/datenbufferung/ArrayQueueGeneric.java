@@ -19,14 +19,18 @@ public class ArrayQueueGeneric<T> implements InterfaceQueueGeneric<T>{
   }
 
   public T remove(){
+    T item = front();
+    System.arraycopy(queue, 1, queue, 0, queue.length - 1);
+    queue[--actIndex] = null;
+    return item;
+  }
+
+  public T front(){
     if (isEmpty()){
       throw new ArrayIndexOutOfBoundsException("ArryQueue lehr!");
       // return null;
     }
-    T item = queue[0];
-    System.arraycopy(queue, 1, queue, 0, queue.length - 1);
-    queue[--actIndex] = null;
-    return item;
+    return queue[0];
   }
 
   public boolean isEmpty(){
@@ -35,6 +39,24 @@ public class ArrayQueueGeneric<T> implements InterfaceQueueGeneric<T>{
 
   public boolean isFull(){
     return (actIndex == queue.length);
+  }
+
+  public int size(){
+    // Act Index ist immer auf dem nächst höheren Index um ein Objekt direkt hinzuzufügen. Deshalb stimmt der actIndex mit der Size überein
+    return actIndex;
+  }
+
+  public String showAllEntries(){
+    StringBuilder stringBuilder = new StringBuilder();
+    int index = 0;
+
+    while(actIndex > index){
+      stringBuilder.append(queue[index].toString());
+      stringBuilder.append("\n");
+      index++;
+    }
+
+    return stringBuilder.toString();
   }
   
 }

@@ -5,7 +5,11 @@ public interface InterfaceQueueGeneric<T>{
 
   public T remove();
 
+  public T front();
+
   public boolean isEmpty();
 
   public boolean isFull();
+
+  public int size();
 }

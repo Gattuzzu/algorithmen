@@ -18,20 +18,24 @@ public class ArrayQueueRingBufferGeneric<T> implements InterfaceQueueGeneric<T>{
       throw new ArrayIndexOutOfBoundsException("ArryQueue voll!");
     }
     queue[writeIndex++] = item;
-    writeIndex = setIndexTo0(writeIndex);
+    writeIndex = setIndexToRange(writeIndex);
     numberOfItems++;
   }
 
   public T remove(){
+    T item = front();
+    queue[readIndex++] = null;
+    readIndex = setIndexToRange(readIndex);
+    numberOfItems--;
+    return item;
+  }
+
+  public T front(){
     if (isEmpty()){
       throw new ArrayIndexOutOfBoundsException("ArryQueue lehr!");
       // return null;
     }
-    T item = queue[readIndex];
-    queue[readIndex++] = null;
-    readIndex = setIndexTo0(readIndex);
-    numberOfItems--;
-    return item;
+    return queue[readIndex];
   }
 
   public boolean isEmpty(){
@@ -42,10 +46,27 @@ public class ArrayQueueRingBufferGeneric<T> implements InterfaceQueueGeneric<T>{
     return (numberOfItems == queue.length);
   }
 
-  private int setIndexTo0(int index){
-    if(index == queue.length){
-      index = 0;
+  private int setIndexToRange(int index){
+    if(index >= queue.length){
+      index = index - queue.length;
     }
     return index;
+  }
+
+  public int size(){
+    return numberOfItems;
+  }
+
+  public String showAllEntries(){
+    StringBuilder stringBuilder = new StringBuilder();
+    int index = 0;
+
+    while(numberOfItems > index){
+      stringBuilder.append(queue[setIndexToRange(readIndex + index)].toString());
+      stringBuilder.append("\n");
+      index++;
+    }
+
+    return stringBuilder.toString();
   }
 }

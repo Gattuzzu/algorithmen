@@ -19,14 +19,19 @@ public class ArrayStackGeneric<T>{
   }
 
   public T pop(){
+    T item = peek(); // actIndex wird in der Methode nicht verändert.
+    stack[--actIndex] = null;
+    return item;
+  } 
+
+  public T peek(){
     if (isEmpty()){
       throw new ArrayIndexOutOfBoundsException("ArrayStack lehr!");
       // return null;
     }
-    T item = stack[--actIndex];
-    stack[actIndex] = null;
+    T item = stack[actIndex - 1];
     return item;
-  } 
+  }
 
   public boolean isEmpty(){
     return (actIndex == 0);
@@ -34,5 +39,10 @@ public class ArrayStackGeneric<T>{
 
   public boolean isFull(){
     return (stack.length == actIndex);
+  }
+
+  public int size(){
+    // Act Index ist immer auf dem nächst höheren Index um ein Objekt direkt hinzuzufügen. Deshalb stimmt der actIndex mit der Size überein
+    return actIndex; 
   }
 }
