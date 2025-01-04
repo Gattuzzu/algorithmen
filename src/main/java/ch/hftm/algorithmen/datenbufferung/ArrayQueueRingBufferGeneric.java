@@ -47,10 +47,7 @@ public class ArrayQueueRingBufferGeneric<T> implements InterfaceQueueGeneric<T>{
   }
 
   private int setIndexToRange(int index){
-    if(index >= queue.length){
-      index = index - queue.length;
-    }
-    return index;
+    return index % queue.length;
   }
 
   public int size(){
