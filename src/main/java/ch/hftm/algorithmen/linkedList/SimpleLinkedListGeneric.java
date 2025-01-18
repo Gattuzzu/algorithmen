@@ -136,6 +136,11 @@ public class SimpleLinkedListGeneric<T> implements Iterable<T>{
     return removeInternal(getLast());
   }
 
+  public void clear(){
+    rootNode = null;
+    size = 0;
+  }
+
   public void reverse(){
     SimpleNode node = rootNode;
     SimpleNode nextNode = null;
