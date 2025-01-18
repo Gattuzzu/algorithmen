@@ -1,7 +1,39 @@
 package ch.hftm.algorithmen.linkedList;
 
 public class SimpleLinkedListGeneric<T> {
-  private SimpleNode<T> rootNode;
+  /* ======================================================
+   * Innere Klasse
+  ====================================================== */ 
+  public class SimpleNode { // Die Generic muss nicht definiert werden, wenn es eine Innere Klasse ist. Dafür kann man die Generic aus der äusseren Klasse verwenden.
+    private T object;
+    private SimpleNode nextNode;
+  
+    private SimpleNode(T object, SimpleNode nextNode){
+      this.object = object;
+      this.nextNode = nextNode;
+    }
+  
+    // Getter und Setter sind bei einer Inneren Klasse nicht notwendig, da man direkt auf die Variablen zugreiffen könnte. -> deshalb sind alle Methoden auch als Private deklariert
+    private T getObject() {
+      return object;
+    }
+  
+    private void setObject(T object) {
+      this.object = object;
+    }
+  
+    private SimpleNode getNextNode() {
+      return nextNode;
+    }
+  
+    private void setNextNode(SimpleNode nextNode) {
+      this.nextNode = nextNode;
+    }
+  
+  }
+  /* =================================================== */ 
+
+  private SimpleNode rootNode;
   private int size;
 
   public SimpleLinkedListGeneric(){
@@ -10,8 +42,8 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   public void addLast(T object){
-    SimpleNode<T> node = getLastNode();
-    SimpleNode<T> newNode = new SimpleNode<>(object, null);
+    SimpleNode node = getLastNode();
+    SimpleNode newNode = new SimpleNode(object, null);
     if(node == null){
       rootNode = newNode;
     } else{
@@ -21,7 +53,7 @@ public class SimpleLinkedListGeneric<T> {
   }
   
   public void addFirst(T object){
-    SimpleNode<T> newNode = new SimpleNode<>(object, rootNode);
+    SimpleNode newNode = new SimpleNode(object, rootNode);
     rootNode = newNode;
     size++;
   }
@@ -31,7 +63,7 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   private int getIndex(T object){
-    SimpleNode<T> node = rootNode;
+    SimpleNode node = rootNode;
     int i = 0;
     while(node != null){
       if(node.getObject() == object){
@@ -52,8 +84,8 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   private T removeInternal(T object){
-    SimpleNode<T> node = rootNode;
-    SimpleNode<T> previusNode = null;
+    SimpleNode node = rootNode;
+    SimpleNode previusNode = null;
     while(node != null){
       if(node.getObject() == object){
         if(previusNode == null){
@@ -71,7 +103,7 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   public T removeFirst(){
-    SimpleNode<T> node = rootNode;
+    SimpleNode node = rootNode;
     if(rootNode != null){
       rootNode = rootNode.getNextNode();
       size--;
@@ -84,9 +116,9 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   public void reverse(){
-    SimpleNode<T> node = rootNode;
-    SimpleNode<T> nextNode = null;
-    SimpleNode<T> previusNode = null;
+    SimpleNode node = rootNode;
+    SimpleNode nextNode = null;
+    SimpleNode previusNode = null;
     while(node != null){
       nextNode = node.getNextNode();
       node.setNextNode(previusNode);
@@ -97,8 +129,8 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   public void merge(SimpleLinkedListGeneric<T> list2){
-    SimpleNode<T> firstNode1 = rootNode;
-    SimpleNode<T> firstNode2 = list2.getFirstNode();
+    SimpleNode firstNode1 = rootNode;
+    SimpleNode firstNode2 = list2.getFirstNode();
     SimpleLinkedListGeneric<T> newList = new SimpleLinkedListGeneric<>();
     while(firstNode1 != null || firstNode2 != null){
       if(firstNode1 != null){
@@ -114,12 +146,12 @@ public class SimpleLinkedListGeneric<T> {
     size = newList.size;
   }
   
-  private SimpleNode<T> getFirstNode(){
+  private SimpleNode getFirstNode(){
     return rootNode;
   }
   
-  private SimpleNode<T> getLastNode(){
-    SimpleNode<T> actNode = rootNode;
+  private SimpleNode getLastNode(){
+    SimpleNode actNode = rootNode;
     if(rootNode != null){
       while(actNode.getNextNode() != null){
         actNode = actNode.getNextNode();
@@ -137,7 +169,7 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   public T get(int index){
-    SimpleNode<T> node = rootNode;
+    SimpleNode node = rootNode;
     int i = index;
     while(i > 0){
       if(node != null){
@@ -154,7 +186,7 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   public T getLast(){
-    SimpleNode<T> node = getLastNode();
+    SimpleNode node = getLastNode();
     if(node != null){
       return node.getObject();
     }
@@ -166,7 +198,7 @@ public class SimpleLinkedListGeneric<T> {
   }
 
   private int calcSize(){
-    SimpleNode<T> node = null;
+    SimpleNode node = null;
     int size = 0;
     if(rootNode != null){
       node = rootNode;
@@ -186,7 +218,7 @@ public class SimpleLinkedListGeneric<T> {
   public String toString(){
     StringBuilder s = new StringBuilder();
     if(rootNode != null){
-      SimpleNode<T> node = rootNode;
+      SimpleNode node = rootNode;
       s.append(node.getObject().toString());
       while(node.getNextNode() != null){
         node = node.getNextNode();
