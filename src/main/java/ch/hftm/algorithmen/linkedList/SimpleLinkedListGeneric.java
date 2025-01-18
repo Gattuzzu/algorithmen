@@ -1,6 +1,8 @@
 package ch.hftm.algorithmen.linkedList;
 
-public class SimpleLinkedListGeneric<T> {
+import java.util.Iterator;
+
+public class SimpleLinkedListGeneric<T> implements Iterable<T>{
   /* ======================================================
    * Innere Klasse
   ====================================================== */ 
@@ -31,6 +33,25 @@ public class SimpleLinkedListGeneric<T> {
     }
   
   }
+  /* =================================================== */ 
+
+  /* ======================================================
+   * Innere Klasse für das Interface Iterable
+  ====================================================== */
+  public class NodeIterator implements Iterator<T>{
+    private int iteratorIndex = 0;
+
+    @Override
+    public boolean hasNext() {
+      return iteratorIndex < size;
+    }
+
+    @Override
+    public T next() {
+      return get(iteratorIndex++);
+    }
+    
+  } 
   /* =================================================== */ 
 
   private SimpleNode rootNode;
@@ -217,16 +238,20 @@ public class SimpleLinkedListGeneric<T> {
 
   public String toString(){
     StringBuilder s = new StringBuilder();
-    if(rootNode != null){
-      SimpleNode node = rootNode;
-      s.append(node.getObject().toString());
-      while(node.getNextNode() != null){
-        node = node.getNextNode();
+    Iterator<T> iterator = iterator();
+    while(iterator.hasNext()){
+      s.append(iterator.next());
+      if(iterator.hasNext()){
         s.append(" -> ");
-        s.append(node.getObject().toString());
       }
     }
     return s.toString();
   }
+
+  @Override
+  public Iterator<T> iterator() {
+    return new NodeIterator();
+  }
+
 
 }
