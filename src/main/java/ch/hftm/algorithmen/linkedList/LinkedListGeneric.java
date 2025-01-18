@@ -34,6 +34,26 @@ public class LinkedListGeneric<T> {
     lastNode = newLastNode;
   }
 
+  public void merge(LinkedListGeneric<T> list2){
+    Node<T> firstNode1 = rootNode;
+    Node<T> firstNode2 = list2.getFirstNode();
+    LinkedListGeneric<T> newList = new LinkedListGeneric<>();
+    while(firstNode1 != null || firstNode2 != null){
+      if(firstNode1 != null){
+        newList.add(firstNode1.getObject());
+        firstNode1 = firstNode1.getNextNode();
+      }
+      if(firstNode2 != null){
+        newList.add(firstNode2.getObject());
+        firstNode2 = firstNode2.getNextNode();
+      }
+    }
+    rootNode = newList.getFirstNode();
+    lastNode = newList.getLastNode();
+    size = newList.size;
+  }
+
+
   private Node<T> getFirstNode(){
     return rootNode;
   }
