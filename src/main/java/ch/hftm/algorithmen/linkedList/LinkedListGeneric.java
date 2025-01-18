@@ -8,6 +8,7 @@ public class LinkedListGeneric<T> {
   public LinkedListGeneric(){
     rootNode = null;
     lastNode = null;
+    size = 0;
   }
 
   public void add(T object){
@@ -19,19 +20,20 @@ public class LinkedListGeneric<T> {
       node.setNextNode(newNode);
     }
     lastNode = newNode;
+    size++;
   }
 
   public void reverse(){
     Node<T> node = rootNode;
     while(node != null){
-      Node<T> nextNode = node.getNextNode();
+      Node<T> oldNextNode = node.getNextNode();
       node.setNextNode(node.getPreviusNode());
-      node.setPreviusNode(nextNode);
-      node = nextNode;
+      node.setPreviusNode(oldNextNode);
+      node = oldNextNode;
     }
-    Node<T> newLastNode = rootNode;
+    Node<T> oldRootNode = rootNode;
     rootNode = lastNode;
-    lastNode = newLastNode;
+    lastNode = oldRootNode;
   }
 
   public void merge(LinkedListGeneric<T> list2){

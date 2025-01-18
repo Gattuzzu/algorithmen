@@ -2,9 +2,27 @@ package ch.hftm.algorithmen.linkedList;
 
 public class LinkedListTest {
   public static void main(String[] args){
+    // SimpleLinkedList
+    System.out.println("Simple Linked List");
+    simpleTest1();
+
+    // LinkedList
+    System.out.println("\nLinked List");
     test1();
     test2();
   }
+
+  public static void simpleTest1(){
+    SimpleLinkedListGeneric<Integer> list = new SimpleLinkedListGeneric<>();
+    list.add(10);
+    list.add(20);
+    list.add(30);
+    System.out.println(list.toString());
+  
+    list.reverse();
+    System.out.println(list.toString());
+  }
+
   
   public static void test1(){
     LinkedListGeneric<Integer> list = new LinkedListGeneric<>();
