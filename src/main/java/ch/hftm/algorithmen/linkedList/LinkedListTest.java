@@ -9,6 +9,14 @@ public class LinkedListTest {
     simpleTest3();
     simpleTestAufgabe2();
 
+    // SimpleLinkedList Queue
+    System.out.println("\nSimple Linked List Queue");
+    simpleTestQueue();
+
+    // SimpleLinkedList Stack
+    System.out.println("\nSimple Linked List Stack");
+    simpleTestStack();
+
     // LinkedList
     System.out.println("\nLinked List");
     test1();
@@ -83,6 +91,44 @@ public class LinkedListTest {
     System.out.println("TEIL 7: Entferne letztes Objekt mit removeLast()");
     list.removeLast();
     System.out.println("Inhalt: " + list.toString());
+  }
+
+  public static void simpleTestQueue(){
+    SimpleLinkedListGenericQueue<Integer> queue = new SimpleLinkedListGenericQueue<>();
+    queue.insert(1);
+    queue.insert(2);
+    queue.insert(3);
+    queue.insert(4);
+    queue.insert(5);
+    System.out.println("Fulle? " + queue.isFull());
+    System.out.println("Remove " + queue.remove());
+    System.out.println("Grösse " + queue.size());
+    System.out.println("Remove " + queue.remove());
+    System.out.println("Front "  + queue.front());
+    System.out.println("Remove " + queue.remove());
+    System.out.println("Remove " + queue.remove());
+    System.out.println("Empty? " + queue.isEmpty());
+    System.out.println("Remove " + queue.remove());
+    System.out.println("Empty? " + queue.isEmpty());
+  }
+
+  public static void simpleTestStack(){
+    SimpleLinkedListGenericStack<Integer> stack = new SimpleLinkedListGenericStack<>();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+    System.out.println("Fulle? " + stack.isFull());
+    System.out.println("Pop " + stack.pop());
+    System.out.println("Grösse " + stack.size());
+    System.out.println("Pop " + stack.pop());
+    System.out.println("Peek "  + stack.peek());
+    System.out.println("Pop " + stack.pop());
+    System.out.println("Pop " + stack.pop());
+    System.out.println("Empty? " + stack.isEmpty());
+    System.out.println("Pop " + stack.pop());
+    System.out.println("Empty? " + stack.isEmpty());
   }
   
   public static void test1(){
