@@ -124,12 +124,16 @@ public class SimpleLinkedListGeneric<T> implements Iterable<T>{
   }
 
   public T removeFirst(){
-    SimpleNode node = rootNode;
-    if(rootNode != null){
+    if (isEmpty()){
+      throw new ArrayIndexOutOfBoundsException("ArryQueue lehr!");
+      // return null;
+
+    } else{
+      SimpleNode node = rootNode;
       rootNode = rootNode.getNextNode();
       size--;
+      return node.getObject();
     }
-    return node.getObject();
   }
 
   public T removeLast(){
@@ -187,6 +191,10 @@ public class SimpleLinkedListGeneric<T> implements Iterable<T>{
   }
   
   public T getFirst(){
+    if (isEmpty()){
+      throw new ArrayIndexOutOfBoundsException("ArryQueue lehr!");
+      // return null;
+    }
     return rootNode.getObject();
   }
   
