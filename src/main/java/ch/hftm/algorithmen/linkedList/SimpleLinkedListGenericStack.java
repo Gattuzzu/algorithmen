@@ -10,17 +10,17 @@ public class SimpleLinkedListGenericStack<T> extends SimpleLinkedListGeneric<T> 
   
   @Override
   public void push(T item) {
-    super.addLast(item);
+    super.addFirst(item);
   }
 
   @Override
   public T pop() {
-    return super.removeLast();
+    return super.removeFirst();
   }
 
   @Override
   public T peek() {
-    return super.getLast();
+    return super.getFirst();
   }
 
   @Override
@@ -28,6 +28,5 @@ public class SimpleLinkedListGenericStack<T> extends SimpleLinkedListGeneric<T> 
     // Die Liste kann ohne limit wachsen, deshalb gibt es keine Maximale Grösse, ausser der Speicher vom Gerät.
     return false;
   }
-
   
 }
