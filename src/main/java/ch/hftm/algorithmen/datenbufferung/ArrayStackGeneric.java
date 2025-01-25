@@ -1,6 +1,6 @@
 package ch.hftm.algorithmen.datenbufferung;
 
-public class ArrayStackGeneric<T>{
+public class ArrayStackGeneric<T> implements InterfaceStackGeneric<T>{
   private T[] stack;
   private int actIndex;
 

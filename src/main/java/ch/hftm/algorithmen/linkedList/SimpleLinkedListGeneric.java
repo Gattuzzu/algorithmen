@@ -220,11 +220,14 @@ public class SimpleLinkedListGeneric<T> implements Iterable<T>{
   }
 
   public T getLast(){
-    SimpleNode node = getLastNode();
-    if(node != null){
+    if (isEmpty()){
+      throw new ArrayIndexOutOfBoundsException("ArryQueue lehr!");
+      // return null;
+
+    } else{
+      SimpleNode node = getLastNode();
       return node.getObject();
     }
-    return null;
   }
 
   public boolean isEmpty(){

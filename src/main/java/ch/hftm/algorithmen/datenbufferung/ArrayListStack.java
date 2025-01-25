@@ -3,7 +3,7 @@ package ch.hftm.algorithmen.datenbufferung;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListStack <T>{
+public class ArrayListStack <T> implements InterfaceStackGeneric<T>{
   private List<T> stack;
 
   public ArrayListStack(){
@@ -18,13 +18,23 @@ public class ArrayListStack <T>{
     return stack.removeLast();
   } 
 
-  public boolean empty(){
+  public boolean isEmpty(){
     return stack.isEmpty();
   }
 
-  public boolean full(){
+  public boolean isFull(){
     // Eine ArrayListe ist niemals voll, da sie Dynamisch wächst
     return false;
+  }
+
+  @Override
+  public T peek() {
+    return stack.getLast();
+  }
+
+  @Override
+  public int size() {
+    return stack.size();
   }
   
 }
