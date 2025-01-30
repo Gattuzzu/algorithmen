@@ -83,9 +83,14 @@ public class LinkedListGeneric<T> implements InterfaceLinkedListGeneric<T> {
   }
 
   public void clear() {
-    rootNode = null;
-    lastNode = null;
-    size = 0;
+    while(!isEmpty()){
+      removeFirst();
+    }
+    
+    // Das ist zwar eine Pragmatische Lösung, aber nicht sehr sauber.
+    // rootNode = null;
+    // lastNode = null;
+    // size = 0;
   }
 
   public void reverse(){

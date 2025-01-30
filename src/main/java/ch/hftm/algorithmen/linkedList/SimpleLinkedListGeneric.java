@@ -141,6 +141,11 @@ public class SimpleLinkedListGeneric<T> implements InterfaceLinkedListGeneric<T>
   }
 
   public void clear(){
+    while(!isEmpty()){
+      removeFirst();
+    }
+
+    // Das ist zwar eine Pragmatische Lösung, aber nicht sehr sauber.
     rootNode = null;
     size = 0;
   }
