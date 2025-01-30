@@ -2,7 +2,7 @@ package ch.hftm.algorithmen.linkedList;
 
 import java.util.Iterator;
 
-public class SimpleLinkedListGeneric<T> implements Iterable<T>{
+public class SimpleLinkedListGeneric<T> implements InterfaceLinkedListGeneric<T>, Iterable<T>{
   /* ======================================================
    * Innere Klasse
   ====================================================== */ 
@@ -158,22 +158,14 @@ public class SimpleLinkedListGeneric<T> implements Iterable<T>{
     rootNode = previusNode;
   }
 
-  public void merge(SimpleLinkedListGeneric<T> list2){
-    SimpleNode firstNode1 = rootNode;
-    SimpleNode firstNode2 = list2.getFirstNode();
+  public void merge(InterfaceLinkedListGeneric<T> list2) {
     SimpleLinkedListGeneric<T> newList = new SimpleLinkedListGeneric<>();
-    while(firstNode1 != null || firstNode2 != null){
-      if(firstNode1 != null){
-        newList.addLast(firstNode1.getObject());
-        firstNode1 = firstNode1.getNextNode();
-      }
-      if(firstNode2 != null){
-        newList.addLast(firstNode2.getObject());
-        firstNode2 = firstNode2.getNextNode();
-      }
+    while(!isEmpty() || !list2.isEmpty()){
+      if(!      isEmpty()){ newList.addLast(      removeFirst()); }
+      if(!list2.isEmpty()){ newList.addLast(list2.removeFirst()); }
     }
     rootNode = newList.getFirstNode();
-    size = newList.size;
+    size = newList.size();
   }
   
   private SimpleNode getFirstNode(){
