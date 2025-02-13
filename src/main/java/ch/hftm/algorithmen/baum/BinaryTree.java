@@ -145,11 +145,41 @@ public class BinaryTree<E extends Comparable<E>> {
    * (=true) oder nicht (=false). (Iterative Version)
    */
   public boolean contains(E data) {
-    boolean found = false;
+    // Iterativ durchsuchen
+    TreeNode<E> node = root;
+    while(node != null){
+      if(node.data != null){
+        int result = node.data.compareTo(data);
+        if(result == 0){
+          return true;
+        } else {
+          node = result > 0 ? node.left : node.right;
+        }
+      }
+    }
+    // Das Ende des Astes ist erreicht und die Daten wurden nicht gefunden
+    return false;
 
-    // .......
+    // Rekursiv durchsuchen
+    // return contains(root, data);
+  }
 
-    return found;
+  // Rekurisv durchsuchen
+  private boolean contains(TreeNode<E> node, E data){
+    if(node != null){
+      if(node.data != null){
+        int result = node.data.compareTo(data);
+        if(result == 0){
+          return true;
+        } else if(result > 0){
+          return contains(node.left, data);
+        } else{ // result < 0
+          return contains(node.right, data);
+        }
+      }
+    }
+    // Das Ende des Astes ist erreicht und die Daten wurden nicht gefunden
+    return false;
   }
 
   /**
@@ -157,10 +187,18 @@ public class BinaryTree<E extends Comparable<E>> {
    * grössten Wert.
    */
   public E maxElement() {
+    if(root == null){
+      return null;
+    }
+    return maxElement(root);
+  }
 
-    // .......
-
-    return null;
+  // Rekursiv das grösste Element suchen
+  private E maxElement(TreeNode<E> node){
+    if(node.right == null){
+      return node.data;
+    }
+    return maxElement(node.right);
   }
 
   /**
@@ -168,10 +206,18 @@ public class BinaryTree<E extends Comparable<E>> {
    * grössten Wert.
    */
   public E minElement() {
+    if(root == null){
+      return null;
+    }
+    return minElement(root);
+  }
 
-    // .......
-
-    return null;
+  // Rekursiv das kleinste Element suchen
+  private E minElement(TreeNode<E> node){
+    if(node.left == null){
+      return node.data;
+    }
+    return minElement(node.left);
   }
 
   /**
