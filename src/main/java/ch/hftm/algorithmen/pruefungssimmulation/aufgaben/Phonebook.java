@@ -26,7 +26,7 @@ public class Phonebook {
     p.addContact("C Nummer");
     p.addContact("B Nummer");
 
-    System.out.println("Search: B Nummer 3 | found: " + p.searchContact("B Nummer 3"));
+    System.out.println("Search: \"B Nummer 3\" | found: " + p.searchContact("B Nummer 3"));
     p.print();
   }
 }
