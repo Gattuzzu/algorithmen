@@ -3,7 +3,7 @@ package ch.hftm.algorithmen.pruefungssimmulation;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class MyQueue {
+public class MyQueue {
     private Queue<String> queue = new LinkedList<>();
 
     public void enqueue(String value) { queue.add(value); }

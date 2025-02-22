@@ -1,6 +1,6 @@
 package ch.hftm.algorithmen.pruefungssimmulation;
 
-class MyBinaryTree {
+public class MyBinaryTree {
   private TreeNode root;
 
   public void insert(String value) {

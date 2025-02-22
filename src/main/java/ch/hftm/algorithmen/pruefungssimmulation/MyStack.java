@@ -2,7 +2,7 @@ package ch.hftm.algorithmen.pruefungssimmulation;
 
 import java.util.Stack;
 
-class MyStack {
+public class MyStack {
     private Stack<String> stack = new Stack<>();
 
     public void push(String value) { stack.push(value); }

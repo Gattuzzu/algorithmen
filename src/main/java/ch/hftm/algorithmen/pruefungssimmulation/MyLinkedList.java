@@ -1,6 +1,6 @@
 package ch.hftm.algorithmen.pruefungssimmulation;
 
-class MyLinkedList {
+public class MyLinkedList {
   private ListNode head;
 
   public void add(String value) {
