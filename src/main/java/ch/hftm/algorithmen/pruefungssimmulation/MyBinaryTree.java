@@ -47,4 +47,8 @@ public class MyBinaryTree {
           inorderRecursive(node.right);
       }
   }
+
+  public TreeNode getRoot(){
+    return root;
+  }
 }

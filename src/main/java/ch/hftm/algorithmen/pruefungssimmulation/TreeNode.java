@@ -1,8 +1,8 @@
 package ch.hftm.algorithmen.pruefungssimmulation;
 
-class TreeNode {
-  String value;
-  TreeNode left, right;
+public class TreeNode {
+  public String value;
+  public TreeNode left, right;
 
   public TreeNode(String value) {
       this.value = value;
